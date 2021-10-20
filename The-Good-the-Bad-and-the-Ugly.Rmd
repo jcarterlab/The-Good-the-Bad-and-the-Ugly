@@ -63,11 +63,10 @@ the_bad <- c("conspiracy",
 # ugly terms. 
 the_ugly <- c("white supremacy",
               "racism",
-              "discrimination",
               "misogyny",
-              "transphobia",
               "hate speech",
-              "sexism")
+              "sexism",
+              "transphobia")
 
 # read in data. 
 data <- read_csv("data.csv")
