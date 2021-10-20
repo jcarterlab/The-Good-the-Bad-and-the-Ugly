@@ -8,11 +8,11 @@ Jack Carter
 This project shows how the conversation in the New York Times (NYT)
 turned for the worse following the 2016 election of Donald Trump. A
 strong sense of national identity is undoubtedly good for any country,
-yet Trump’s rise was also accompanied by a growing distrust in the
-traditional media and increased social discrimination. While this data
-may indicate a decline in such rhetoric following Joe Biden’s 2020
-victory, the underlying views of many Americans who do not read or
-contribute to liberal newspapers like the NYT have likely not changed.
+yet Trump’s rise was also accompanied by a growing distrust in the media
+and increased social discrimination. While this data may indicate a
+decline in such rhetoric following Joe Biden’s 2020 victory, the
+underlying views of many Americans who do not read or contribute to
+liberal newspapers like the NYT have likely not changed.
 
  
 
