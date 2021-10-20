@@ -1,13 +1,3 @@
----
-title: "The Good, the Bad and the Ugly"
-author: "Jack Carter"
-date: "10/17/2021"
-output: github_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
@@ -17,6 +7,7 @@ library(here)
 
 # gets the z score for a specific term. 
 get_z_score <- function(data) {
+  
   mean <- mean(
     data
     )
@@ -62,11 +53,11 @@ the_bad <- c("conspiracy",
 
 # ugly terms. 
 the_ugly <- c("white supremacy",
+              "homophobia",
               "discrimination",
               "misogyny",
               "transphobia",
-              "hate speech",
-              "homophobia")
+              "hate speech")
 
 # read in data. 
 data <- read_csv("data.csv")
@@ -109,29 +100,6 @@ my_theme <- theme_economist_white(gray_bg = FALSE) +
                                   color = "#474747"),
         panel.spacing = unit(2, "lines"))
 
-```
-
-## **Summary**
-This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national identity is undoubtedly good for any country, yet Trump's rise was also accompanied by a growing distrust in the traditional media and increased social discrimination. While this data may indicate a decline in such rhetoric following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to liberal newspapers like the NYT have likely not changed. 
-
-&nbsp;
-
-## **Method**
-
-**1) Data Collection:**
-
-The data used in this study are collected from the NYT API. They include metadata indicating the number of articles that contain certain terms for each year between 2011 and 2021. 
-
-**2) Z Scores:**
-
-The z scores are then calculated by term as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of the terms before, during and after Trump's presidency. 
-
-&nbsp;
-
-### 1) The Good
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
-
 # the good. 
 sorted_data_frame %>% 
   mutate(
@@ -156,12 +124,6 @@ sorted_data_frame %>%
     "Year"
     ) + 
   my_theme
-
-```
-
-### 2) The Bad
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
 # the bad. 
 sorted_data_frame %>% 
@@ -188,12 +150,6 @@ sorted_data_frame %>%
   ) + 
   my_theme
 
-```
-
-### 3) The Ugly
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
-
 # the ugly. 
 sorted_data_frame %>% 
   mutate(
@@ -209,7 +165,7 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
   ) +
   ggtitle(
-    "Discrimination"
+    "Divisiveness"
   ) +
   ylab(
     "Z Score"
@@ -217,19 +173,5 @@ sorted_data_frame %>%
   xlab(
     "Year"
     ) + 
-  my_theme
-
-```
-
-&nbsp;
-
-## **Sources**
-
-- New York Times (2021) https://developer.nytimes.com/apis
-
-- Statology (2021) https://www.statology.org/interpret-z-scores/
-
-&nbsp;
-&nbsp;
-&nbsp;
-
+    my_theme
+ 
