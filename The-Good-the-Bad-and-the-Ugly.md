@@ -28,8 +28,8 @@ for each year between 2011 and 2021.
 
 The z scores are then calculated by term as the raw value less the
 term’s mean, divided by the term’s standard deviation. This allows us
-to compare the relative trajectory of the terms before, during and after
-Trump’s presidency.
+to compare the relative trajectory of the terms at the time of Trump’s
+presidency.
 
  
 
