@@ -26,22 +26,21 @@ for each year between 2011 and 2021.
 
 **2) Z Scores:**
 
-The z scores are then calculated by term as the raw value less the
-term’s mean, divided by the term’s standard deviation. This allows us
-to compare the relative trajectory of the terms at the time of Trump’s
-presidency.
+The z scores are then calculated as the raw value less the term’s mean,
+divided by the term’s standard deviation. This allows us to compare the
+relative trajectory of terms during Trump’s presidency.
 
  
 
-### 1\) The Good
+## 1\) The Good
 
 ![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
-### 2\) The Bad
+## 2\) The Bad
 
 ![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
-### 3\) The Ugly
+## 3\) The Ugly
 
 ![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 

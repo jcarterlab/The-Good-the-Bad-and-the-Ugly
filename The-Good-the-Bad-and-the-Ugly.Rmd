@@ -34,7 +34,6 @@ get_z_score <- function(data) {
 
 # gets the z score for a list of terms. 
 get_z_scores <- function(data) {
-  
   groups <- data %>%
     group_split(term)
   
@@ -81,7 +80,7 @@ sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5, 
                                   vjust = 15, 
-                                  size = 9, 
+                                  size = 10, 
                                   color = "#474747"),
         plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
         axis.text = element_text(size = 9, 
@@ -123,11 +122,11 @@ The data used in this study are collected from the NYT API. They include metadat
 
 **2) Z Scores:**
 
-The z scores are then calculated by term as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of the terms at the time of Trump's presidency. 
+The z scores are then calculated as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of terms during Trump's presidency. 
 
 &nbsp;
 
-### 1) The Good
+## 1) The Good
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
@@ -146,10 +145,10 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
     ) +
   geom_vline(
-    xintercept = 2016, col="gray30"
+    xintercept = 2016, col="#808080"
     ) +
   geom_vline(
-    xintercept = 2020, col="gray30"
+    xintercept = 2020, col="#808080"
   ) +
   ggtitle(
     "Belonging"
@@ -164,7 +163,7 @@ sorted_data_frame %>%
 
 ```
 
-### 2) The Bad
+## 2) The Bad
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
@@ -183,10 +182,10 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
   ) +
   geom_vline(
-    xintercept = 2016, col="gray30"
+    xintercept = 2016, col="#808080"
   ) +
   geom_vline(
-    xintercept = 2020, col="gray30"
+    xintercept = 2020, col="#808080"
   ) +
   ggtitle(
     "Distrust"
@@ -201,7 +200,7 @@ sorted_data_frame %>%
 
 ```
 
-### 3) The Ugly
+## 3) The Ugly
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
@@ -220,10 +219,10 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
   ) +
   geom_vline(
-    xintercept = 2016, col="gray30"
+    xintercept = 2016, col="#808080"
   ) +
   geom_vline(
-    xintercept = 2020, col="gray30"
+    xintercept = 2020, col="#808080"
   ) +
   ggtitle(
     "Divisiveness"
