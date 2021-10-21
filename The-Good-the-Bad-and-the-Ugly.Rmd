@@ -62,7 +62,7 @@ the_bad <- c("conspiracy",
 
 # ugly terms. 
 the_ugly <- c("white supremacy",
-              "racism",
+              "discrimination",
               "misogyny",
               "hate speech",
               "sexism")
@@ -80,7 +80,7 @@ sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 # my personal plot theme for data visualizations. 
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5, 
-                                  vjust = 12, 
+                                  vjust = 15, 
                                   size = 9, 
                                   color = "#474747"),
         plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
@@ -111,7 +111,7 @@ my_theme <- theme_economist_white(gray_bg = FALSE) +
 ```
 
 ## **Summary**
-This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national identity is undoubtedly good for any country, yet Trump's rise was also accompanied by a growing distrust in the media and increased social discrimination. While this data may indicate a decline in such rhetoric following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to liberal newspapers like the NYT have likely not changed. 
+This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by a growing distrust in the media and increased social discrimination. While this data may indicate a decline in such rhetoric following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to liberal newspapers like the NYT have likely not changed. 
 
 &nbsp;
 
@@ -145,8 +145,14 @@ sorted_data_frame %>%
   geom_smooth(
     se=F, span = 0.5, size = 0.5
     ) +
+  geom_vline(
+    xintercept = 2016, col="gray30"
+    ) +
+  geom_vline(
+    xintercept = 2020, col="gray30"
+  ) +
   ggtitle(
-    "Identity"
+    "Belonging"
     ) +
   ylab(
     "Z Score"
@@ -175,6 +181,12 @@ sorted_data_frame %>%
   ) +
   geom_smooth(
     se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="gray30"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="gray30"
   ) +
   ggtitle(
     "Distrust"
@@ -207,8 +219,14 @@ sorted_data_frame %>%
   geom_smooth(
     se=F, span = 0.5, size = 0.5
   ) +
+  geom_vline(
+    xintercept = 2016, col="gray30"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="gray30"
+  ) +
   ggtitle(
-    "Discrimination"
+    "Divisiveness"
   ) +
   ylab(
     "Z Score"
