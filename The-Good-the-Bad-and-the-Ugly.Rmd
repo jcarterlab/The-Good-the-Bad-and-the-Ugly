@@ -79,7 +79,7 @@ sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 # my personal plot theme for data visualizations. 
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5, 
-                                  vjust = 15, 
+                                  vjust = 13, 
                                   size = 10, 
                                   color = "#474747"),
         plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
@@ -122,7 +122,7 @@ The data used in this study are collected from the NYT API. They include metadat
 
 **2) Z Scores:**
 
-The z scores are then calculated as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of terms during Trump's presidency. 
+The z scores are then calculated as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of terms regardless of their overall count during Trump's presidency. 
 
 &nbsp;
 
