@@ -80,7 +80,7 @@ sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5, 
                                   vjust = 13, 
-                                  size = 10, 
+                                  size = 9, 
                                   color = "#474747"),
         plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
         axis.text = element_text(size = 9, 
