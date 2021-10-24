@@ -319,7 +319,7 @@ sorted_data_frame %>%
     xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Political Divergence"
+    "Political Polarization"
   ) +
   ylab(
     "Z Score"
