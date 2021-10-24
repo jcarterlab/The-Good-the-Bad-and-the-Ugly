@@ -144,48 +144,6 @@ The z scores are then calculated as the raw value less the term's mean, divided 
 
 &nbsp;
 
-## The Rise of Trump
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
-
-# trump's rise.  
-sorted_data_frame %>% 
-  mutate(
-    z_score = get_z_scores(sorted_data_frame)
-    ) %>%
-  filter(
-    term %in% str_to_title(trump)
-  ) %>%
-  ggplot(
-    aes(x=year, y=z_score, col=term)
-    ) +
-  geom_smooth(
-    se=F, span = 0.5, size = 0.5
-    ) +
-  geom_vline(
-    xintercept = 2016, col="darkgrey"
-    ) +
-  geom_vline(
-    xintercept = 2020, col="darkgrey"
-  ) +
-  ggtitle(
-    "Trump's Rise"
-    ) +
-  ylab(
-    "Z Score"
-    ) +
-  xlab(
-    "Year"
-    ) + 
-  ylim(
-    -2, 2.4
-  ) +
-  my_theme
-
-```
-
-&nbsp;
-
 ## 1) The Good
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}

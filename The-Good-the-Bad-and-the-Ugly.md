@@ -33,23 +33,17 @@ Trump’s presidency.
 
  
 
-## The Rise of Trump
+## 1\) The Good
 
 ![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
- 
-
-## 1\) The Good
-
-![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
-
 ## 2\) The Bad
 
-![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-3.png)<!-- -->
+![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
 
 ## 3\) The Ugly
 
-![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-4-3.png)<!-- -->
+![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-3.png)<!-- -->
 
  
 
