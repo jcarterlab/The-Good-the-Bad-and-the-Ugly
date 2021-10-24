@@ -7,7 +7,6 @@ output: github_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
@@ -48,23 +47,42 @@ get_z_scores <- function(data) {
     ))
 }
 
-# good terms. 
-the_good <- c("patriotism",
-              "national identity",
-              "nationalism")
+trump <- "Donald Trump"
 
-# bad terms. 
-the_bad <- c("conspiracy",
-             "false information",
-             "misinformation",
-             "disinformation")
+national_belonging <- c("patriotism",
+                        "nationalism",
+                        "national identity")
 
-# ugly terms. 
-the_ugly <- c("white supremacy",
-              "discrimination",
-              "misogyny",
-              "hate speech",
-              "sexism")
+disinformation <- c("conspiracy",
+                    "disinformation",
+                    "falsehoods")
+
+media_distrust <- c("fake news", 
+                    "enemy of the people",
+                    "media manipulation")
+
+partisanship <- c("partisan politics",
+                  "political polarization",
+                  "political divide")
+
+discrimination <- c("discrimination",
+                    "bigotry",
+                    "hate speech")
+
+racism <- c("racism",
+            "white supremacy",
+            "xenophobia")
+
+sexism <- c("sexism",
+            "misogyny",
+            "transphobia")
+
+sexual_orientation <- c("homophobia",
+                        "transphobia")
+
+far_right <- c("the far-right",
+               "white nationalists",
+               "white supremacists")
 
 # read in data. 
 data <- read_csv("data.csv")
@@ -80,7 +98,7 @@ sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5, 
                                   vjust = 13, 
-                                  size = 9, 
+                                  size = 8, 
                                   color = "#474747"),
         plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
         axis.text = element_text(size = 9, 
@@ -95,7 +113,7 @@ my_theme <- theme_economist_white(gray_bg = FALSE) +
         legend.direction = "vertical", 
         legend.position = "right",
         legend.title = element_blank(),
-        legend.text = element_text(size = 12, 
+        legend.text = element_text(size = 10, 
                                    color = "gray20"),
         legend.margin=margin(1, -15, 1, 0),
         legend.spacing.x = unit(0.25, "cm"),
@@ -126,18 +144,18 @@ The z scores are then calculated as the raw value less the term's mean, divided 
 
 &nbsp;
 
-## 1) The Good
+## The Rise of Trump
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
-# the good. 
+# trump's rise.  
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
     ) %>%
   filter(
-    term %in% str_to_title(the_good)
-    ) %>%
+    term %in% str_to_title(trump)
+  ) %>%
   ggplot(
     aes(x=year, y=z_score, col=term)
     ) +
@@ -145,13 +163,13 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
     ) +
   geom_vline(
-    xintercept = 2016, col="#808080"
+    xintercept = 2016, col="darkgrey"
     ) +
   geom_vline(
-    xintercept = 2020, col="#808080"
+    xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Belonging"
+    "Trump's Rise"
     ) +
   ylab(
     "Z Score"
@@ -159,6 +177,51 @@ sorted_data_frame %>%
   xlab(
     "Year"
     ) + 
+  ylim(
+    -2, 2.4
+  ) +
+  my_theme
+
+```
+
+&nbsp;
+
+## 1) The Good
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
+
+# national belonging. 
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(national_belonging)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "National Belonging"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.4
+  ) +
   my_theme
 
 ```
@@ -167,13 +230,13 @@ sorted_data_frame %>%
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
-# the bad. 
+# disinformation. 
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
   ) %>%
   filter(
-    term %in% str_to_title(the_bad)
+    term %in% str_to_title(disinformation)
   ) %>%
   ggplot(
     aes(x=year, y=z_score, col=term)
@@ -182,13 +245,47 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
   ) +
   geom_vline(
-    xintercept = 2016, col="#808080"
+    xintercept = 2016, col="darkgrey"
   ) +
   geom_vline(
-    xintercept = 2020, col="#808080"
+    xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Distrust"
+    "Disinformation"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+    ) + 
+  ylim(
+    -2, 2.4
+  ) +
+  my_theme
+
+# media distrust.  
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(media_distrust)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Media Distrust"
   ) +
   ylab(
     "Z Score"
@@ -196,6 +293,43 @@ sorted_data_frame %>%
   xlab(
     "Year"
   ) + 
+  ylim(
+    -2, 2.4
+  ) +
+  my_theme
+
+# partisanship.   
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(partisanship)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Political Divergence"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.4
+  ) +
   my_theme
 
 ```
@@ -204,13 +338,13 @@ sorted_data_frame %>%
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
-# the ugly. 
+# discrimination.   
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
   ) %>%
   filter(
-    term %in% str_to_title(the_ugly)
+    term %in% str_to_title(discrimination)
   ) %>%
   ggplot(
     aes(x=year, y=z_score, col=term)
@@ -219,20 +353,91 @@ sorted_data_frame %>%
     se=F, span = 0.5, size = 0.5
   ) +
   geom_vline(
-    xintercept = 2016, col="#808080"
+    xintercept = 2016, col="darkgrey"
   ) +
   geom_vline(
-    xintercept = 2020, col="#808080"
+    xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Divisiveness"
+    "Social Discrimination"
   ) +
   ylab(
     "Z Score"
   ) +
   xlab(
     "Year"
-    ) + 
+  ) + 
+  ylim(
+    -2, 2.4
+  ) +
+  my_theme
+
+# racism.    
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(racism)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Racism"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.4
+  ) +
+  my_theme
+
+# sexism.     
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(sexism)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Sexism"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.4
+  ) +
   my_theme
 
 ```
