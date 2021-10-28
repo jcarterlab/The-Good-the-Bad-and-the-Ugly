@@ -8,11 +8,11 @@ Jack Carter
 This project shows how the conversation in the New York Times (NYT)
 turned for the worse following the 2016 election of Donald Trump. A
 strong sense of national belonging is undoubtedly good for any country,
-yet Trump’s rise was also accompanied by disinformation, polarization,
-discrimination and the emboldening of extreme groups. While this data
-may indicate a decline in some of these trends following Joe Biden’s
-2020 victory, the underlying views of many Americans who do not read or
-contribute to the NYT have likely not changed.
+yet Trump’s rise was also accompanied by disinformation, political
+polarization, discrimination and the emboldening of extreme groups.
+While this data may indicate a decline in some of these trends following
+Joe Biden’s 2020 victory, the underlying views of many Trump supporting
+Americans who do not read the NYT have likely not changed.
 
  
 
@@ -24,11 +24,15 @@ The data used in this study are collected from the NYT API. They include
 metadata that indicate the number of articles containing certain terms
 for each year between 2011 and 2021.
 
+<br/>
+
 **2) Z Scores:**
 
 The z scores are calculated as the raw number of articles less the
 term’s mean, divided by the term’s standard deviation. This allows for
 a comparison of the relative trajectory of terms.
+
+<br/>
 
 **2) Loess Transformation:**
 

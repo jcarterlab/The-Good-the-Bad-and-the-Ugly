@@ -49,7 +49,7 @@ get_z_scores <- function(data) {
 }
 
 national_belonging <- c("patriotism",
-                        "nationalism",
+                        "america first",
                         "national identity")
 
 disinformation <- c("conspiracy",
@@ -60,9 +60,9 @@ partisanship <- c("partisan politics",
                   "political polarization",
                   "political differences")
 
-discrimination <- c("racism",
-                    "sexism",
-                    "hate speech")
+discrimination <- c("misogynist", 
+                    "xenophobic", 
+                    "bigot")
 
 extreme_groups <- c("the far-right",
                     "white nationalists",
@@ -81,40 +81,68 @@ sorted_data_frame <- data[index,]
 sorted_data_frame$term <- str_to_title(sorted_data_frame$term)
 
 # my personal plot theme for data visualizations. 
-my_theme <- theme_economist_white(gray_bg = FALSE) +
-  theme(plot.title = element_text(hjust = 0.5, 
-                                  vjust = 13, 
-                                  size = 8, 
-                                  color = "#474747"),
-        plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
-        axis.text = element_text(size = 9, 
-                                 color = "gray30"),
-        axis.text.x=element_text(vjust = -2.5),
-        axis.title.x = element_text(size = 9, 
-                                    color = "gray30", 
-                                    vjust = -10),
-        axis.title.y = element_text(size = 9, 
-                                    color = "gray30", 
-                                    vjust = 10),
-        legend.direction = "vertical", 
-        legend.position = "right",
-        legend.title = element_blank(),
-        legend.text = element_text(size = 10, 
-                                   color = "gray20"),
-        legend.margin=margin(1, -15, 1, 0),
-        legend.spacing.x = unit(0.25, "cm"),
-        legend.key.size = unit(1, "cm"), 
-        legend.key.height = unit(0.75, "cm"),
-        strip.text = element_text(hjust = 0.5, 
-                                  vjust = 1, 
-                                  size = 10, 
-                                  color = "#474747"),
-        panel.spacing = unit(2, "lines"))
+my_theme <- theme_economist_white(
+  gray_bg = FALSE
+) +
+  theme(plot.title = element_text(
+    hjust = 0.5, 
+    vjust = 13, 
+    size = 9, 
+    color = "#474747"
+  ),
+  plot.margin = unit(
+    c(1.5, 1, 1.5, 1), "cm"
+  ),
+  axis.text = element_text(
+    size = 9, 
+    color = "gray30"
+  ),
+  axis.text.x=element_text(
+    vjust = -2.5
+  ),
+  axis.title.x = element_text(
+    size = 9, 
+    color = "gray30", 
+    vjust = -10
+  ),
+  axis.title.y = element_text(
+    size = 9, 
+    color = "gray30", 
+    vjust = 10
+  ),
+  legend.direction = "vertical", 
+  legend.position = "right",
+  legend.title = element_blank(),
+  legend.text = element_text(
+    size = 12, 
+    color = "gray20"
+  ),
+  legend.margin=margin(
+    1, -15, 1, 0
+  ),
+  legend.spacing.x = unit(
+    0.25, "cm"
+  ),
+  legend.key.size = unit(
+    1, "cm"
+  ), 
+  legend.key.height = unit(
+    0.75, "cm"
+  ),
+  strip.text = element_text(
+    hjust = 0.5, 
+    vjust = 1, 
+    size = 10, 
+    color = "#474747"
+  ),
+  panel.spacing = unit(
+    2, "lines")
+  )
 
 ```
 
 ## **Summary**
-This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by disinformation, polarization, discrimination and the emboldening of extreme groups. While this data may indicate a decline in some of these trends following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to the NYT have likely not changed. 
+This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by disinformation, political polarization, discrimination and the emboldening of extreme groups. While this data may indicate a decline in some of these trends following Joe Biden's 2020 victory, the underlying views of many Trump supporting Americans who do not read the NYT have likely not changed. 
 
 &nbsp;
 
@@ -124,9 +152,13 @@ This project shows how the conversation in the New York Times (NYT) turned for t
 
 The data used in this study are collected from the NYT API. They include metadata that indicate the number of articles containing certain terms for each year between 2011 and 2021. 
 
+<br/>
+
 **2) Z Scores:**
 
 The z scores are calculated as the raw number of articles less the term's mean, divided by the term's standard deviation. This allows for a comparison of the relative trajectory of terms. 
+
+<br/>
 
 **2) Loess Transformation:**
 
