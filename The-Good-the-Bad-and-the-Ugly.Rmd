@@ -34,8 +34,9 @@ get_z_score <- function(data) {
 # gets the z score for a list of terms. 
 get_z_scores <- function(data) {
   groups <- data %>%
-    group_split(term)
-  
+    group_split(
+      term
+      )
   z_scores <- list()
   for(i in 1:length(groups)) {
     z_scores[i] <- list(
@@ -47,8 +48,6 @@ get_z_scores <- function(data) {
     ))
 }
 
-trump <- "Donald Trump"
-
 national_belonging <- c("patriotism",
                         "nationalism",
                         "national identity")
@@ -57,38 +56,25 @@ disinformation <- c("conspiracy",
                     "disinformation",
                     "falsehoods")
 
-media_distrust <- c("fake news", 
-                    "enemy of the people",
-                    "media manipulation")
-
 partisanship <- c("partisan politics",
                   "political polarization",
-                  "political divide")
+                  "political differences")
 
-discrimination <- c("discrimination",
-                    "bigotry",
+discrimination <- c("racism",
+                    "sexism",
                     "hate speech")
 
-racism <- c("racism",
-            "white supremacy",
-            "xenophobia")
-
-sexism <- c("sexism",
-            "misogyny",
-            "transphobia")
-
-sexual_orientation <- c("homophobia",
-                        "transphobia")
-
-far_right <- c("the far-right",
-               "white nationalists",
-               "white supremacists")
+extreme_groups <- c("the far-right",
+                    "white nationalists",
+                    "white supremacists")
 
 # read in data. 
 data <- read_csv("data.csv")
 
 # sort data alphabetically by term. 
-index <- order(data$term)
+index <- order(
+  data$term
+  )
 sorted_data_frame <- data[index,]
 
 # change term to upper case. 
@@ -128,7 +114,7 @@ my_theme <- theme_economist_white(gray_bg = FALSE) +
 ```
 
 ## **Summary**
-This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by a growing distrust in the media and increased social divisiveness. While this data may indicate a decline in such rhetoric following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to liberal newspapers like the NYT have likely not changed. 
+This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by disinformation, polarization, discrimination and the emboldening of extreme groups. While this data may indicate a decline in some of these trends following Joe Biden's 2020 victory, the underlying views of many Americans who do not read or contribute to the NYT have likely not changed. 
 
 &nbsp;
 
@@ -136,11 +122,15 @@ This project shows how the conversation in the New York Times (NYT) turned for t
 
 **1) Data Collection:**
 
-The data used in this study are collected from the NYT API. They include metadata indicating the number of articles that contain certain terms for each year between 2011 and 2021. 
+The data used in this study are collected from the NYT API. They include metadata that indicate the number of articles containing certain terms for each year between 2011 and 2021. 
 
 **2) Z Scores:**
 
-The z scores are then calculated as the raw value less the term's mean, divided by the term's standard deviation. This allows us to compare the relative trajectory of terms regardless of their overall count during Trump's presidency. 
+The z scores are calculated as the raw number of articles less the term's mean, divided by the term's standard deviation. This allows for a comparison of the relative trajectory of terms. 
+
+**2) Loess Transformation:**
+
+The data for each term is then plotted with the use of a loess regression line. This smooths out the data points into a curve for a better visualization of overall trends. 
 
 &nbsp;
 
@@ -222,40 +212,6 @@ sorted_data_frame %>%
   ) +
   my_theme
 
-# media distrust.  
-sorted_data_frame %>% 
-  mutate(
-    z_score = get_z_scores(sorted_data_frame)
-  ) %>%
-  filter(
-    term %in% str_to_title(media_distrust)
-  ) %>%
-  ggplot(
-    aes(x=year, y=z_score, col=term)
-  ) +
-  geom_smooth(
-    se=F, span = 0.5, size = 0.5
-  ) +
-  geom_vline(
-    xintercept = 2016, col="darkgrey"
-  ) +
-  geom_vline(
-    xintercept = 2020, col="darkgrey"
-  ) +
-  ggtitle(
-    "Media Distrust"
-  ) +
-  ylab(
-    "Z Score"
-  ) +
-  xlab(
-    "Year"
-  ) + 
-  ylim(
-    -2, 2.4
-  ) +
-  my_theme
-
 # partisanship.   
 sorted_data_frame %>% 
   mutate(
@@ -317,7 +273,7 @@ sorted_data_frame %>%
     xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Social Discrimination"
+    "Discrimination"
   ) +
   ylab(
     "Z Score"
@@ -330,13 +286,13 @@ sorted_data_frame %>%
   ) +
   my_theme
 
-# racism.    
+# extreme groups.     
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
   ) %>%
   filter(
-    term %in% str_to_title(racism)
+    term %in% str_to_title(extreme_groups)
   ) %>%
   ggplot(
     aes(x=year, y=z_score, col=term)
@@ -351,41 +307,7 @@ sorted_data_frame %>%
     xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Racism"
-  ) +
-  ylab(
-    "Z Score"
-  ) +
-  xlab(
-    "Year"
-  ) + 
-  ylim(
-    -2, 2.4
-  ) +
-  my_theme
-
-# sexism.     
-sorted_data_frame %>% 
-  mutate(
-    z_score = get_z_scores(sorted_data_frame)
-  ) %>%
-  filter(
-    term %in% str_to_title(sexism)
-  ) %>%
-  ggplot(
-    aes(x=year, y=z_score, col=term)
-  ) +
-  geom_smooth(
-    se=F, span = 0.5, size = 0.5
-  ) +
-  geom_vline(
-    xintercept = 2016, col="darkgrey"
-  ) +
-  geom_vline(
-    xintercept = 2020, col="darkgrey"
-  ) +
-  ggtitle(
-    "Sexism"
+    "Extreme groups"
   ) +
   ylab(
     "Z Score"
