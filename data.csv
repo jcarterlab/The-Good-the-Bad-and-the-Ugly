@@ -1,0 +1,298 @@
+hits,year,term,decade
+224,2011,patriotism,2010
+234,2012,patriotism,2010
+141,2013,patriotism,2010
+220,2014,patriotism,2010
+189,2015,patriotism,2010
+252,2016,patriotism,2010
+265,2017,patriotism,2010
+240,2018,patriotism,2010
+285,2019,patriotism,2010
+240,2020,patriotism,2020
+179,2021,patriotism,2020
+86,2011,national identity,2010
+83,2012,national identity,2010
+76,2013,national identity,2010
+122,2014,national identity,2010
+85,2015,national identity,2010
+145,2016,national identity,2010
+141,2017,national identity,2010
+161,2018,national identity,2010
+104,2019,national identity,2010
+71,2020,national identity,2020
+74,2021,national identity,2020
+129,2011,anti-semitism,2010
+144,2012,anti-semitism,2010
+136,2013,anti-semitism,2010
+215,2014,anti-semitism,2010
+216,2015,anti-semitism,2010
+222,2016,anti-semitism,2010
+272,2017,anti-semitism,2010
+318,2018,anti-semitism,2010
+502,2019,anti-semitism,2010
+233,2020,anti-semitism,2020
+158,2021,anti-semitism,2020
+76,2011,sexism,2010
+88,2012,sexism,2010
+140,2013,sexism,2010
+198,2014,sexism,2010
+211,2015,sexism,2010
+365,2016,sexism,2010
+466,2017,sexism,2010
+422,2018,sexism,2010
+385,2019,sexism,2010
+369,2020,sexism,2020
+342,2021,sexism,2020
+372,2011,racism,2010
+461,2012,racism,2010
+493,2013,racism,2010
+598,2014,racism,2010
+832,2015,racism,2010
+1258,2016,racism,2010
+1240,2017,racism,2010
+1458,2018,racism,2010
+1537,2019,racism,2010
+3194,2020,racism,2020
+2223,2021,racism,2020
+23,2011,islamophobia,2010
+31,2012,islamophobia,2010
+15,2013,islamophobia,2010
+19,2014,islamophobia,2010
+71,2015,islamophobia,2010
+105,2016,islamophobia,2010
+104,2017,islamophobia,2010
+58,2018,islamophobia,2010
+71,2019,islamophobia,2010
+37,2020,islamophobia,2020
+40,2021,islamophobia,2020
+4,2011,transphobia,2010
+0,2012,transphobia,2010
+0,2013,transphobia,2010
+7,2014,transphobia,2010
+7,2015,transphobia,2010
+18,2016,transphobia,2010
+9,2017,transphobia,2010
+21,2018,transphobia,2010
+26,2019,transphobia,2010
+23,2020,transphobia,2020
+28,2021,transphobia,2020
+121,2011,the far-right,2010
+202,2012,the far-right,2010
+149,2013,the far-right,2010
+195,2014,the far-right,2010
+227,2015,the far-right,2010
+259,2016,the far-right,2010
+604,2017,the far-right,2010
+475,2018,the far-right,2010
+447,2019,the far-right,2010
+314,2020,the far-right,2020
+455,2021,the far-right,2020
+0,2011,the alt-right,2010
+0,2012,the alt-right,2010
+0,2013,the alt-right,2010
+0,2014,the alt-right,2010
+0,2015,the alt-right,2010
+114,2016,the alt-right,2010
+213,2017,the alt-right,2010
+104,2018,the alt-right,2010
+58,2019,the alt-right,2010
+24,2020,the alt-right,2020
+25,2021,the alt-right,2020
+10,2011,white supremacists,2010
+19,2012,white supremacists,2010
+16,2013,white supremacists,2010
+22,2014,white supremacists,2010
+46,2015,white supremacists,2010
+132,2016,white supremacists,2010
+389,2017,white supremacists,2010
+215,2018,white supremacists,2010
+221,2019,white supremacists,2010
+249,2020,white supremacists,2020
+193,2021,white supremacists,2020
+0,2011,white nationalists,2010
+1,2012,white nationalists,2010
+2,2013,white nationalists,2010
+3,2014,white nationalists,2010
+5,2015,white nationalists,2010
+66,2016,white nationalists,2010
+216,2017,white nationalists,2010
+132,2018,white nationalists,2010
+163,2019,white nationalists,2010
+67,2020,white nationalists,2020
+54,2021,white nationalists,2020
+0,2011,antifa,2010
+0,2012,antifa,2010
+0,2013,antifa,2010
+0,2014,antifa,2010
+0,2015,antifa,2010
+0,2016,antifa,2010
+64,2017,antifa,2010
+29,2018,antifa,2010
+32,2019,antifa,2010
+221,2020,antifa,2020
+139,2021,antifa,2020
+156,2011,partisanship,2010
+212,2012,partisanship,2010
+127,2013,partisanship,2010
+136,2014,partisanship,2010
+113,2015,partisanship,2010
+172,2016,partisanship,2010
+208,2017,partisanship,2010
+272,2018,partisanship,2010
+215,2019,partisanship,2010
+287,2020,partisanship,2020
+235,2021,partisanship,2020
+47,2011,partisan politics,2010
+65,2012,partisan politics,2010
+42,2013,partisan politics,2010
+43,2014,partisan politics,2010
+42,2015,partisan politics,2010
+51,2016,partisan politics,2010
+57,2017,partisan politics,2010
+108,2018,partisan politics,2010
+94,2019,partisan politics,2010
+126,2020,partisan politics,2020
+70,2021,partisan politics,2020
+13,2011,political polarization,2010
+29,2012,political polarization,2010
+34,2013,political polarization,2010
+39,2014,political polarization,2010
+37,2015,political polarization,2010
+49,2016,political polarization,2010
+44,2017,political polarization,2010
+65,2018,political polarization,2010
+63,2019,political polarization,2010
+88,2020,political polarization,2020
+87,2021,political polarization,2020
+30,2011,political divide,2010
+31,2012,political divide,2010
+29,2013,political divide,2010
+24,2014,political divide,2010
+34,2015,political divide,2010
+54,2016,political divide,2010
+49,2017,political divide,2010
+53,2018,political divide,2010
+48,2019,political divide,2010
+66,2020,political divide,2020
+55,2021,political divide,2020
+36,2011,political differences,2010
+28,2012,political differences,2010
+36,2013,political differences,2010
+25,2014,political differences,2010
+24,2015,political differences,2010
+27,2016,political differences,2010
+37,2017,political differences,2010
+50,2018,political differences,2010
+44,2019,political differences,2010
+52,2020,political differences,2020
+41,2021,political differences,2020
+997,2011,conspiracy,2010
+993,2012,conspiracy,2010
+876,2013,conspiracy,2010
+798,2014,conspiracy,2010
+835,2015,conspiracy,2010
+1055,2016,conspiracy,2010
+1023,2017,conspiracy,2010
+1322,2018,conspiracy,2010
+1648,2019,conspiracy,2010
+1850,2020,conspiracy,2020
+1703,2021,conspiracy,2020
+41,2011,disinformation,2010
+36,2012,disinformation,2010
+24,2013,disinformation,2010
+43,2014,disinformation,2010
+33,2015,disinformation,2010
+71,2016,disinformation,2010
+148,2017,disinformation,2010
+344,2018,disinformation,2010
+447,2019,disinformation,2010
+800,2020,disinformation,2020
+575,2021,disinformation,2020
+21,2011,misleading information,2010
+16,2012,misleading information,2010
+26,2013,misleading information,2010
+24,2014,misleading information,2010
+21,2015,misleading information,2010
+17,2016,misleading information,2010
+25,2017,misleading information,2010
+29,2018,misleading information,2010
+43,2019,misleading information,2010
+122,2020,misleading information,2020
+52,2021,misleading information,2020
+54,2011,falsehoods,2010
+64,2012,falsehoods,2010
+30,2013,falsehoods,2010
+30,2014,falsehoods,2010
+50,2015,falsehoods,2010
+97,2016,falsehoods,2010
+164,2017,falsehoods,2010
+190,2018,falsehoods,2010
+147,2019,falsehoods,2010
+313,2020,falsehoods,2020
+263,2021,falsehoods,2020
+1,2011,media distrust,2010
+0,2012,media distrust,2010
+0,2013,media distrust,2010
+0,2014,media distrust,2010
+0,2015,media distrust,2010
+1,2016,media distrust,2010
+0,2017,media distrust,2010
+0,2018,media distrust,2010
+0,2019,media distrust,2010
+0,2020,media distrust,2020
+0,2021,media distrust,2020
+30,2011,voter fraud,2010
+96,2012,voter fraud,2010
+37,2013,voter fraud,2010
+62,2014,voter fraud,2010
+32,2015,voter fraud,2010
+137,2016,voter fraud,2010
+161,2017,voter fraud,2010
+148,2018,voter fraud,2010
+80,2019,voter fraud,2010
+506,2020,voter fraud,2020
+384,2021,voter fraud,2020
+7,2011,rigged election,2010
+4,2012,rigged election,2010
+6,2013,rigged election,2010
+4,2014,rigged election,2010
+0,2015,rigged election,2010
+52,2016,rigged election,2010
+8,2017,rigged election,2010
+6,2018,rigged election,2010
+5,2019,rigged election,2010
+84,2020,rigged election,2020
+43,2021,rigged election,2020
+26,2011,election fraud,2010
+36,2012,election fraud,2010
+17,2013,election fraud,2010
+18,2014,election fraud,2010
+9,2015,election fraud,2010
+41,2016,election fraud,2010
+36,2017,election fraud,2010
+40,2018,election fraud,2010
+43,2019,election fraud,2010
+201,2020,election fraud,2020
+407,2021,election fraud,2020
+7,2011,stolen election,2010
+1,2012,stolen election,2010
+1,2013,stolen election,2010
+0,2014,stolen election,2010
+0,2015,stolen election,2010
+12,2016,stolen election,2010
+1,2017,stolen election,2010
+4,2018,stolen election,2010
+0,2019,stolen election,2010
+44,2020,stolen election,2020
+184,2021,stolen election,2020
+2,2011,ballot fraud,2010
+8,2012,ballot fraud,2010
+1,2013,ballot fraud,2010
+2,2014,ballot fraud,2010
+1,2015,ballot fraud,2010
+2,2016,ballot fraud,2010
+1,2017,ballot fraud,2010
+11,2018,ballot fraud,2010
+5,2019,ballot fraud,2010
+32,2020,ballot fraud,2020
+13,2021,ballot fraud,2020

@@ -49,24 +49,34 @@ get_z_scores <- function(data) {
 }
 
 national_belonging <- c("patriotism",
-                        "america first",
                         "national identity")
 
-disinformation <- c("conspiracy",
-                    "disinformation",
-                    "falsehoods")
-
-partisanship <- c("partisan politics",
-                  "political polarization",
-                  "political differences")
-
-discrimination <- c("misogynist", 
-                    "xenophobic", 
-                    "bigot")
+discrimination <- c("anti-semitism",
+                    "sexism", 
+                    "racism", 
+                    "islamophobia",
+                    "transphobia")
 
 extreme_groups <- c("the far-right",
+                    "the alt-right",
+                    "white supremacists",
                     "white nationalists",
-                    "white supremacists")
+                    "antifa")
+
+partisanship <- c("partisanship",
+                  "political polarization",
+                  "political divide",
+                  "political differences")
+
+post_truth <- c("conspiracy",
+                "disinformation",
+                "misleading information",
+                "falsehoods")
+
+election_skepticism <- c("voter fraud",
+                         "election fraud",
+                         "stolen election",
+                         "ballot fraud")
 
 # read in data. 
 data <- read_csv("data.csv")
@@ -142,7 +152,7 @@ my_theme <- theme_economist_white(
 ```
 
 ## **Summary**
-This project shows how the conversation in the New York Times (NYT) turned for the worse following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by disinformation, political polarization, discrimination and the emboldening of extreme groups. While this data may indicate a decline in some of these trends following Joe Biden's 2020 victory, the underlying views of many Trump supporting Americans who do not read the NYT have likely not changed. 
+This project shows how the conversation in the New York Times (NYT) turned ugly following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise was also accompanied by discrimination, the emboldening of extreme groups, political polarization, post-truth era disinformation and widespread skepticism in the legitimacy of the 2020 election. 
 
 &nbsp;
 
@@ -150,19 +160,19 @@ This project shows how the conversation in the New York Times (NYT) turned for t
 
 **1) Data Collection:**
 
-The data used in this study are collected from the NYT API. They include metadata that indicate the number of articles containing certain terms for each year between 2011 and 2021. 
+The data used in this study were collected from the New York Times (NYT) API, including the number of articles containing certain terms for each year between 2011 and 2021. 
 
 <br/>
 
 **2) Z Scores:**
 
-The z scores are calculated as the raw number of articles less the term's mean, divided by the term's standard deviation. This allows for a comparison of the relative trajectory of terms. 
+The z scores were calculated as the raw number of articles containing a certain, less that term's mean, divided by its standard deviation. This standardizes the scores, allowing for a comparison of the relative trajectory of terms. 
 
 <br/>
 
 **2) Loess Transformation:**
 
-The data for each term is then plotted with the use of a loess regression line. This smooths out the data points into a curve for a better visualization of overall trends. 
+The data for each term is then plotted with the use of a loess regression line. This smoothens out the data into a curve for a better visualization of overall trends. 
 
 &nbsp;
 
@@ -200,7 +210,7 @@ sorted_data_frame %>%
     "Year"
   ) + 
   ylim(
-    -2, 2.4
+    -2, 2.5
   ) +
   my_theme
 
@@ -210,81 +220,7 @@ sorted_data_frame %>%
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
-# disinformation. 
-sorted_data_frame %>% 
-  mutate(
-    z_score = get_z_scores(sorted_data_frame)
-  ) %>%
-  filter(
-    term %in% str_to_title(disinformation)
-  ) %>%
-  ggplot(
-    aes(x=year, y=z_score, col=term)
-  ) +
-  geom_smooth(
-    se=F, span = 0.5, size = 0.5
-  ) +
-  geom_vline(
-    xintercept = 2016, col="darkgrey"
-  ) +
-  geom_vline(
-    xintercept = 2020, col="darkgrey"
-  ) +
-  ggtitle(
-    "Disinformation"
-  ) +
-  ylab(
-    "Z Score"
-  ) +
-  xlab(
-    "Year"
-    ) + 
-  ylim(
-    -2, 2.4
-  ) +
-  my_theme
-
-# partisanship.   
-sorted_data_frame %>% 
-  mutate(
-    z_score = get_z_scores(sorted_data_frame)
-  ) %>%
-  filter(
-    term %in% str_to_title(partisanship)
-  ) %>%
-  ggplot(
-    aes(x=year, y=z_score, col=term)
-  ) +
-  geom_smooth(
-    se=F, span = 0.5, size = 0.5
-  ) +
-  geom_vline(
-    xintercept = 2016, col="darkgrey"
-  ) +
-  geom_vline(
-    xintercept = 2020, col="darkgrey"
-  ) +
-  ggtitle(
-    "Political Polarization"
-  ) +
-  ylab(
-    "Z Score"
-  ) +
-  xlab(
-    "Year"
-  ) + 
-  ylim(
-    -2, 2.4
-  ) +
-  my_theme
-
-```
-
-## 3) The Ugly
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
-
-# discrimination.   
+# discrimination 
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
@@ -293,7 +229,7 @@ sorted_data_frame %>%
     term %in% str_to_title(discrimination)
   ) %>%
   ggplot(
-    aes(x=year, y=z_score, col=term)
+    aes(x=year, y=z_score, col=term) 
   ) +
   geom_smooth(
     se=F, span = 0.5, size = 0.5
@@ -314,11 +250,11 @@ sorted_data_frame %>%
     "Year"
   ) + 
   ylim(
-    -2, 2.4
+    -2, 2.5
   ) +
   my_theme
 
-# extreme groups.     
+# extreme groups   
 sorted_data_frame %>% 
   mutate(
     z_score = get_z_scores(sorted_data_frame)
@@ -339,7 +275,7 @@ sorted_data_frame %>%
     xintercept = 2020, col="darkgrey"
   ) +
   ggtitle(
-    "Extreme groups"
+    "Extreme Groups"
   ) +
   ylab(
     "Z Score"
@@ -348,8 +284,113 @@ sorted_data_frame %>%
     "Year"
   ) + 
   ylim(
-    -2, 2.4
+    -2, 2.5
   ) +
+  my_theme
+
+```
+
+## 3) The Ugly
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
+
+# partisanship   
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(partisanship)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Partisanship"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.5
+  ) +
+  my_theme
+
+# post truth      
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(post_truth)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Post Truth"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
+  ylim(
+    -2, 2.5
+  ) +
+  my_theme
+
+# election skepticism.     
+sorted_data_frame %>% 
+  mutate(
+    z_score = get_z_scores(sorted_data_frame)
+  ) %>%
+  filter(
+    term %in% str_to_title(election_skepticism)
+  ) %>%
+  ggplot(
+    aes(x=year, y=z_score, col=term)
+  ) +
+  geom_smooth(
+    se=F, span = 0.5, size = 0.5
+  ) +
+  geom_vline(
+    xintercept = 2016, col="darkgrey"
+  ) +
+  geom_vline(
+    xintercept = 2020, col="darkgrey"
+  ) +
+  ggtitle(
+    "Election Skepticism"
+  ) +
+  ylab(
+    "Z Score"
+  ) +
+  xlab(
+    "Year"
+  ) + 
   my_theme
 
 ```

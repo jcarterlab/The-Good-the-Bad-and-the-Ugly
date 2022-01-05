@@ -6,13 +6,11 @@ Jack Carter
 ## **Summary**
 
 This project shows how the conversation in the New York Times (NYT)
-turned for the worse following the 2016 election of Donald Trump. A
-strong sense of national belonging is undoubtedly good for any country,
-yet Trump’s rise was also accompanied by disinformation, political
-polarization, discrimination and the emboldening of extreme groups.
-While this data may indicate a decline in some of these trends following
-Joe Biden’s 2020 victory, the underlying views of many Trump supporting
-Americans who do not read the NYT have likely not changed.
+turned ugly following the 2016 election of Donald Trump. A strong sense
+of national belonging is undoubtedly good for any country, yet Trump’s
+rise was also accompanied by discrimination, the emboldening of extreme
+groups, political polarization, post-truth era disinformation and
+widespread skepticism in the legitimacy of the 2020 election.
 
  
 
@@ -20,25 +18,26 @@ Americans who do not read the NYT have likely not changed.
 
 **1) Data Collection:**
 
-The data used in this study are collected from the NYT API. They include
-metadata that indicate the number of articles containing certain terms
-for each year between 2011 and 2021.
+The data used in this study were collected from the New York Times (NYT)
+API, including the number of articles containing certain terms for each
+year between 2011 and 2021.
 
 <br/>
 
 **2) Z Scores:**
 
-The z scores are calculated as the raw number of articles less the
-term’s mean, divided by the term’s standard deviation. This allows for
-a comparison of the relative trajectory of terms.
+The z scores were calculated as the raw number of articles containing a
+certain, less that term’s mean, divided by its standard deviation. This
+standardizes the scores, allowing for a comparison of the relative
+trajectory of terms.
 
 <br/>
 
 **2) Loess Transformation:**
 
 The data for each term is then plotted with the use of a loess
-regression line. This smooths out the data points into a curve for a
-better visualization of overall trends.
+regression line. This smoothens out the data into a curve for a better
+visualization of overall trends.
 
  
 
@@ -52,7 +51,7 @@ better visualization of overall trends.
 
 ## 3\) The Ugly
 
-![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-3.png)<!-- -->
 
  
 
