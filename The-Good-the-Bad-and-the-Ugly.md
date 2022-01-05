@@ -9,8 +9,9 @@ This project shows how the conversation in the New York Times (NYT)
 turned ugly following the 2016 election of Donald Trump. A strong sense
 of national belonging is undoubtedly good for any country, yet Trump’s
 rise was also accompanied by discrimination, the emboldening of extreme
-groups, political polarization, post-truth era disinformation and
-widespread skepticism in the legitimacy of the 2020 election.
+groups, political polarization, disinformation and widespread skepticism
+regarding the legitimacy of the 2020 election, the last three of which
+appear here to stay.
 
  
 
