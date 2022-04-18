@@ -100,7 +100,7 @@ make_plot <- function(category, title) {
                   label="Trump's 2016 win -", 
                   y=max(z_score)+0.1,
                   hjust=1.05),
-              size=3,
+              size=2.75,
               col="#696969") +
     geom_vline(xintercept = 2020,
                size=0.25,
@@ -109,7 +109,7 @@ make_plot <- function(category, title) {
                   label="Trump's 2020 loss -",
                   y=max(z_score)+0.1,
                   hjust=1.05),
-              size=3,
+              size=2.75,
               col="#696969") +
     ggtitle(title) +
     ylab("Articles (z-scores)") +
