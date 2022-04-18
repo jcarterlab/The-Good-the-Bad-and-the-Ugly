@@ -50,6 +50,8 @@ us to view the term’s relative distribution over time. It is calculated
 as 1) the number of articles less the term’s mean, 2) divided by the
 term’s standard deviation.
 
+—EXAMPLE CODE SNIPET—
+
 ``` r
 # gets the z-score for each term. 
 get_z_score <- function(data) {
@@ -81,6 +83,8 @@ get_z_scores <- function(data) {
 The data for each term is plotted with the use of a loess regression
 line (geom\_smooth in the code below). This transforms the data into a
 smooth curve for a better visualization of underlying trends.
+
+—EXAMPLE CODE SNIPET—
 
 ``` r
 # creates a plot with smoothed loess regression lines. 

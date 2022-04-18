@@ -191,6 +191,8 @@ kable(summary_table)
 
 The number of articles is converted to each term's z-score. This allows us to view the term's relative distribution over time. It is calculated as 1) the number of articles less the term's mean, 2) divided by the term's standard deviation.
 
+—EXAMPLE CODE SNIPET—
+
 ```{r, echo = TRUE, message = FALSE, warning = FALSE, dpi=600}
 
 # gets the z-score for each term. 
@@ -222,6 +224,8 @@ get_z_scores <- function(data) {
 ### **3) Loess Transformation:**
 
 The data for each term is plotted with the use of a loess regression line (geom_smooth in the code below). This transforms the data into a smooth curve for a better visualization of underlying trends. 
+
+—EXAMPLE CODE SNIPET—
 
 ```{r, echo = TRUE, message = FALSE, warning = FALSE, dpi=600}
 
