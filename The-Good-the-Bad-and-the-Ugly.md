@@ -12,7 +12,7 @@ most famous newspaper, The New York Times (NYT), changed following the
 Eastwood’s The Good, The Bad And The Ugly, Trump’s election elicited
 rhetoric indicating good (a heightened sense of national belonging for
 many (albeit predominantly white) Americans), bad (increasing political
-polarization), and ugly (growing social discrimination) changes in
+polarization), and ugly (growing social discrimination) aspects in
 American society.
 
  
