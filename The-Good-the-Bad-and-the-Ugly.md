@@ -9,11 +9,11 @@ This project uses a z-score transformation on the number of articles
 containing certain terms to show how the conversation in the world’s
 most famous newspaper, The New York Times (NYT), changed following the
 2016 election of Donald Trump. Just like the characters in Clint
-Eastwood’s The Good, The Bad And The Ugly, Trump's election elicited
+Eastwood’s The Good, The Bad And The Ugly, Trump’s election elicited
 rhetoric indicating good (a heightened sense of national belonging for
 many (albeit predominantly white) Americans), bad (increasing political
-polarization), and ugly (growing social discrimination) changes in American
-society.
+polarization), and ugly (growing social discrimination) changes in
+American society.
 
  
 
@@ -33,13 +33,14 @@ society.
 
 ## **Method**
 
-### **1) Data Collection:**
+### **1) Choose Terms:**
 
-The data were collected from the New York Times API. They include the
-number of articles for each search term in the 12 years between 2011 and
+The terms were selected on the basis of trial and error in an attempt to
+find underlying trends in the data during Trump’s presidency. The table
+below details the number of articles for each term between 2011 and
 2022.
 
-**Terms (article no. in 000s)**
+**Terms (articles in 000s)**
 
 | Anti-Semitism | Islamophobia | National Identity | Partisan Politics | Partisanship | Patriotism | Political Differences | Political Divide | Political Polarization | Racism | Sexism | Transphobia |
 | ------------: | -----------: | ----------------: | ----------------: | -----------: | ---------: | --------------------: | ---------------: | ---------------------: | -----: | -----: | ----------: |
@@ -47,7 +48,51 @@ number of articles for each search term in the 12 years between 2011 and
 
  
 
-### **2) Z-scores:**
+### **2) Data Collection:**
+
+The data were collected using an API call from the New York Times. A
+repeat try loop is used to ensure the full data are collected even if
+the connection drops out on a particular call.
+
+``` r
+# find out how many results are returned for a given year. 
+get_data <- function(start_dates, end_dates, terms) {
+  url <- paste0("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=%22",
+                terms,
+                "%22&begin_date=",
+                start_dates,
+                "&end_date=",
+                end_dates,
+                "&facet_filter=true&api-key=",
+                nyt_key, 
+                sep="")
+  # query. 
+  results_counter <- 1L
+  results <- list()
+  search <- repeat{try({query <- fromJSON(url, flatten = TRUE)})
+    # error handling. 
+    if(exists("query")) {
+      results <- query
+      rm(query)
+      break 
+    } else {
+      if(results_counter <= 45L) {
+        message("Re-trying query: attempt ", results_counter, " of 45.")
+        results_counter <- results_counter +1L
+        Sys.sleep(1)
+      } else {
+        message("Retry limit reached: initial query unsuccessful.")
+        break
+      }
+    }
+  }
+  return(results)
+}
+```
+
+ 
+
+### **3) Z-score Transformation:**
 
 The number of articles is converted to each term’s z-score. This allows
 us to view the term’s relative distribution over time. It is calculated
@@ -82,7 +127,7 @@ get_z_scores <- function(data) {
 
  
 
-### **3) Loess Transformation:**
+### **4) Loess Transformation:**
 
 The data for each term is plotted with the use of a loess regression
 line (geom\_smooth in the code below). This transforms the data into a
