@@ -116,9 +116,9 @@ make_plot <- function(category, title) {
   - Boyer (2019)
     <https://www.esquire.com/news-politics/a26454551/donald-trump-interview-new-york-times-media-objectivity/>
 
+  - New York Times (2021) <https://developer.nytimes.com/apis>
+
   - Rutenberg (2016)
     <https://www.nytimes.com/2016/08/08/business/balance-fairness-and-a-proudly-provocative-presidential-candidate.html>
-
-  - New York Times (2021) <https://developer.nytimes.com/apis>
 
   - Statology (2021) <https://www.statology.org/interpret-z-scores/>
