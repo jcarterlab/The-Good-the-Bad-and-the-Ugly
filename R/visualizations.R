@@ -98,19 +98,19 @@ make_plot <- function(category, title) {
                size=0.25,
                col="#696969") +
     geom_text(aes(x=2016, 
-                  label="Trump's 2016 win -", 
+                  label="2016 win -", 
                   y=max(z_score)+0.1,
                   hjust=1.05),
-              size=3,
+              size=2.75,
               col="#696969") +
     geom_vline(xintercept = 2020,
                size=0.25,
                col="#696969") +
     geom_text(aes(x=2020, 
-                  label="Trump's 2020 loss -",
+                  label="2020 loss -",
                   y=max(z_score)+0.1,
                   hjust=1.05),
-              size=3,
+              size=2.75,
               col="#696969") +
     ggtitle(title) +
     ylab("Articles (z-scores)") +

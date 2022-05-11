@@ -40,7 +40,6 @@ get_z_scores <- function(data) {
 national_belonging <- c("patriotism",
                         "national identity")
 partisanship <- c("partisanship",
-                  "political polarization",
                   "political divide",
                   "political differences")
 discrimination <- c("anti-semitism",
@@ -65,33 +64,33 @@ sorted_df$z_score <- get_z_scores(sorted_df)
 # my personal plot theme for data visualizations. 
 my_theme <- theme_economist_white(gray_bg = FALSE) +
   theme(plot.title = element_text(hjust = 0.5,
-                                  vjust = 15,
+                                  vjust = 10,
                                   size = 10,
                                   color = "#474747"),
-  plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
-  axis.text = element_text(size = 9,
-                           color = "gray30"),
-  axis.text.x=element_text(vjust = -2.5),
-  axis.title.x = element_text(size = 9,
-                              color = "gray30",
-                              vjust = -10),
-  axis.title.y = element_text(size = 9,
-                              color = "gray30",
-                              vjust = 10),
-  legend.direction = "vertical", 
-  legend.position = "right",
-  legend.title = element_blank(),
-  legend.text = element_text(size = 11,
-                             color = "gray20"),
-  legend.margin=margin(1, -15, 1, 0),
-  legend.spacing.x = unit(0.25, "cm"),
-  legend.key.size = unit(1, "cm"), 
-  legend.key.height = unit(0.75, "cm"),
-  strip.text = element_text(hjust = 0.5,
-                            vjust = 1,
-                            size = 10,
-                            color = "#474747"),
-  panel.spacing = unit(2, "lines"))
+        plot.margin = unit(c(1.5, 1, 1.5, 1), "cm"),
+        axis.text = element_text(size = 9,
+                                 color = "gray30"),
+        axis.text.x=element_text(vjust = -2.5),
+        axis.title.x = element_text(size = 9,
+                                    color = "gray30",
+                                    vjust = -10),
+        axis.title.y = element_text(size = 9,
+                                    color = "gray30",
+                                    vjust = 10),
+        legend.direction = "vertical", 
+        legend.position = "right",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 11,
+                                   color = "gray20"),
+        legend.margin=margin(1, -15, 1, 0),
+        legend.spacing.x = unit(0.25, "cm"),
+        legend.key.size = unit(1, "cm"), 
+        legend.key.height = unit(0.75, "cm"),
+        strip.text = element_text(hjust = 0.5,
+                                  vjust = 1,
+                                  size = 10,
+                                  color = "#474747"),
+        panel.spacing = unit(2, "lines"))
 
 # creates a plot with smoothed loess regression lines. 
 make_plot <- function(category, title) {
@@ -122,7 +121,7 @@ make_plot <- function(category, title) {
               size=2.75,
               col="#696969") +
     ggtitle(title) +
-    ylab("Articles (z-scores)") +
+    ylab("Z-score") +
     xlab("") + 
     my_theme
   return(plot)
@@ -131,7 +130,7 @@ make_plot <- function(category, title) {
 ```
 
 ## **Summary**
-This project shows how the conversation in the New York Times (NYT) changed following the 2016 election of Donald Trump. A strong sense of national belonging is undoubtedly good for any country, yet Trump's rise also appears to have been accompanied by growing political partisanship and increased social discrimination.
+This project uses a z-score transformation on the number of articles containing certain terms to show how the conversation in the world's most famous newspaper, The New York Times (NYT), changed following the 2016 election of Donald Trump. Just like the characters in Clint Eastwood's The Good, The Bad And The Ugly, the election elicited rhetoric indicating good (a heightened sense of national belonging for many (albeit predominantly white) Americans), bad (increasing political polarization), and ugly (growing social discrimination) changes in Trump's America. 
 
 &nbsp;
 
@@ -149,7 +148,7 @@ make_plot(national_belonging, "National Belonging")
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
 # partisanship   
-make_plot(partisanship, "Partisanship")
+make_plot(partisanship, "Political Polarization")
 
 ```
 
@@ -158,7 +157,7 @@ make_plot(partisanship, "Partisanship")
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
 # discrimination 
-make_plot(discrimination, "Discrimination")
+make_plot(discrimination, "Social Discrimination")
 
 ```
 
@@ -170,7 +169,7 @@ make_plot(discrimination, "Discrimination")
 
 The data were collected from the New York Times API. They include the number of articles for each search term in the 12 years between 2011 and 2022.
 
-**Total articles (thousands)**
+**Terms (article no. in 000s)**
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, dpi=600}
 
@@ -223,7 +222,7 @@ get_z_scores <- function(data) {
 
 ### **3) Loess Transformation:**
 
-The data for each term is plotted with the use of a loess regression line (geom_smooth in the code below). This transforms the data into a smooth curve for a better visualization of underlying trends. 
+The data for each term is plotted with the use of a loess regression line (geom_smooth in the code below). This transforms the data into a smooth curve for a better visualization of overall trends. 
 
 —EXAMPLE CODE SNIPET—
 
@@ -231,36 +230,18 @@ The data for each term is plotted with the use of a loess regression line (geom_
 
 # creates a plot with smoothed loess regression lines. 
 make_plot <- function(category, title) {
-  plot <- sorted_df %>%
-    filter(term %in% str_to_title(category)) %>%
-    ggplot(aes(x=year, 
-               y=z_score, 
-               col=term)) +
+  #plot <- sorted_df %>%
+    #filter(term %in% str_to_title(category)) %>%
+    #ggplot(aes(x=year, 
+               #y=z_score, 
+               #col=term)) +
     geom_smooth(se=F, 
                 span = 0.5, 
-                size = 0.5) +
-    geom_vline(xintercept = 2016,
-               size=0.25,
-               col="#696969") +
-    geom_text(aes(x=2016, 
-                  label="2016 win -", 
-                  y=max(z_score)+0.1,
-                  hjust=1.05),
-              size=2.75,
-              col="#696969") +
-    geom_vline(xintercept = 2020,
-               size=0.25,
-               col="#696969") +
-    geom_text(aes(x=2020, 
-                  label="2020 loss -",
-                  y=max(z_score)+0.1,
-                  hjust=1.05),
-              size=2.75,
-              col="#696969") +
-    ggtitle(title) +
-    ylab("Articles (z-scores)") +
-    xlab("") + 
-    my_theme
+                size = 0.5)
+    #ggtitle(title) +
+    #ylab("Articles (z-scores)") +
+    #xlab("") + 
+    #my_theme
   return(plot)
 }
 
@@ -269,6 +250,10 @@ make_plot <- function(category, title) {
 &nbsp;
 
 ## **Sources**
+
+- Boyer (2019) https://www.esquire.com/news-politics/a26454551/donald-trump-interview-new-york-times-media-objectivity/
+
+- Rutenberg (2016) https://www.nytimes.com/2016/08/08/business/balance-fairness-and-a-proudly-provocative-presidential-candidate.html
 
 - New York Times (2021) https://developer.nytimes.com/apis
 

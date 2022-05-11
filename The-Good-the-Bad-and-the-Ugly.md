@@ -5,11 +5,15 @@ Jack Carter
 
 ## **Summary**
 
-This project shows how the conversation in the New York Times (NYT)
-changed following the 2016 election of Donald Trump. A strong sense of
-national belonging is undoubtedly good for any country, yet Trump’s rise
-also appears to have been accompanied by growing political partisanship
-and increased social discrimination.
+This project uses a z-score transformation on the number of articles
+containing certain terms to show how the conversation in the world’s
+most famous newspaper, The New York Times (NYT), changed following the
+2016 election of Donald Trump. Just like the characters in Clint
+Eastwood’s The Good, The Bad And The Ugly, the election elicited
+rhetoric indicating good (a heightened sense of national belonging for
+many (albeit predominantly white) Americans), bad (increasing political
+polarization), and ugly (growing social discrimination) changes in
+Trump’s America.
 
  
 
@@ -35,7 +39,7 @@ The data were collected from the New York Times API. They include the
 number of articles for each search term in the 12 years between 2011 and
 2022.
 
-**Total articles (thousands)**
+**Terms (article no. in 000s)**
 
 | Anti-Semitism | Islamophobia | National Identity | Partisan Politics | Partisanship | Patriotism | Political Differences | Political Divide | Political Polarization | Racism | Sexism | Transphobia |
 | ------------: | -----------: | ----------------: | ----------------: | -----------: | ---------: | --------------------: | ---------------: | ---------------------: | -----: | -----: | ----------: |
@@ -82,43 +86,25 @@ get_z_scores <- function(data) {
 
 The data for each term is plotted with the use of a loess regression
 line (geom\_smooth in the code below). This transforms the data into a
-smooth curve for a better visualization of underlying trends.
+smooth curve for a better visualization of overall trends.
 
 —EXAMPLE CODE SNIPET—
 
 ``` r
 # creates a plot with smoothed loess regression lines. 
 make_plot <- function(category, title) {
-  plot <- sorted_df %>%
-    filter(term %in% str_to_title(category)) %>%
-    ggplot(aes(x=year, 
-               y=z_score, 
-               col=term)) +
+  #plot <- sorted_df %>%
+    #filter(term %in% str_to_title(category)) %>%
+    #ggplot(aes(x=year, 
+               #y=z_score, 
+               #col=term)) +
     geom_smooth(se=F, 
                 span = 0.5, 
-                size = 0.5) +
-    geom_vline(xintercept = 2016,
-               size=0.25,
-               col="#696969") +
-    geom_text(aes(x=2016, 
-                  label="2016 win -", 
-                  y=max(z_score)+0.1,
-                  hjust=1.05),
-              size=2.75,
-              col="#696969") +
-    geom_vline(xintercept = 2020,
-               size=0.25,
-               col="#696969") +
-    geom_text(aes(x=2020, 
-                  label="2020 loss -",
-                  y=max(z_score)+0.1,
-                  hjust=1.05),
-              size=2.75,
-              col="#696969") +
-    ggtitle(title) +
-    ylab("Articles (z-scores)") +
-    xlab("") + 
-    my_theme
+                size = 0.5)
+    #ggtitle(title) +
+    #ylab("Articles (z-scores)") +
+    #xlab("") + 
+    #my_theme
   return(plot)
 }
 ```
@@ -126,6 +112,12 @@ make_plot <- function(category, title) {
  
 
 ## **Sources**
+
+  - Boyer (2019)
+    <https://www.esquire.com/news-politics/a26454551/donald-trump-interview-new-york-times-media-objectivity/>
+
+  - Rutenberg (2016)
+    <https://www.nytimes.com/2016/08/08/business/balance-fairness-and-a-proudly-provocative-presidential-candidate.html>
 
   - New York Times (2021) <https://developer.nytimes.com/apis>
 
