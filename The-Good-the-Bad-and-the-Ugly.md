@@ -6,14 +6,13 @@ Jack Carter
 ## **Summary**
 
 This project uses a z-score transformation on the number of articles
-containing certain terms to show how the conversation in the world’s
-most famous newspaper, The New York Times (NYT), changed following the
-2016 election of Donald Trump. Just like the characters in Clint
-Eastwood’s The Good, The Bad And The Ugly, Trump’s election elicited
-rhetoric indicating good (a heightened sense of national belonging for
-many (albeit predominantly white) Americans), bad (increasing political
-polarization), and ugly (growing social discrimination) aspects of
-American society.
+containing certain terms to show how the conversation in The New York
+Times (NYT) changed following the 2016 election of Donald Trump. Just
+like the characters in Clint Eastwood’s The Good, The Bad And The Ugly,
+the election elicited rhetoric indicating good (heightened national
+belonging for many (albeit predominantly white) citizens), bad
+(political polarization), and ugly (social discrimination) changes in
+Trump’s America.
 
  
 
@@ -53,6 +52,8 @@ below details the number of articles for each term between 2011 and
 The data were collected using an API call from the New York Times. A
 repeat try loop is used to ensure the full data are collected even if
 the connection drops out on a particular call.
+
+—EXAMPLE CODE SNIPET—
 
 ``` r
 # find out how many results are returned for a given year. 
