@@ -5,14 +5,13 @@ Jack Carter
 
 ## **Summary**
 
-This project uses the number of articles
-containing certain terms to show how the conversation in The New York
-Times (NYT) changed following the 2016 election of Donald Trump. Just
-like the characters in Clint Eastwood’s famous spaghetti western,
-the election elicited rhetoric indicating good (a heightened national
-belonging for many (albeit mostly white) citizens), bad
-(political polarization), and ugly (social discrimination) changes in
-Trump’s America.
+This project uses the number of articles containing certain terms to
+show how the conversation in The New York Times (NYT) changed following
+the 2016 election of Donald Trump. Just like the characters in Clint
+Eastwood’s famous spaghetti western, the election elicited rhetoric
+indicating good (a heightened national belonging for many (albeit mostly
+white) citizens), bad (political polarization), and ugly (social
+discrimination) changes in Trump’s America.
 
  
 
@@ -27,6 +26,16 @@ Trump’s America.
 ## 3\) The Ugly
 
 ![](The-Good-the-Bad-and-the-Ugly_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+ 
+
+## **Disclaimer**
+
+The data above show only relative changes in the number of articles for
+each term between 2011 and 2022, not how many times a term appeared
+overall or the context in which it was used. This means any conclusions
+we make about good, bad and ugly changes in Trump’s America are only
+assumptions, not necessarily facts.
 
  
 

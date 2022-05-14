@@ -170,6 +170,12 @@ make_plot(discrimination, "Social Discrimination")
 
 &nbsp;
 
+## **Disclaimer**
+
+The data above show only relative changes in the number of articles for each term between 2011 and 2022, not how many times a term appeared overall or the context in which it was used. This means any conclusions we make about good, bad and ugly changes in Trump's America are only assumptions, not necessarily facts.  
+
+&nbsp;
+
 ## **Method**
 
 ### **1) Choose Terms:**
