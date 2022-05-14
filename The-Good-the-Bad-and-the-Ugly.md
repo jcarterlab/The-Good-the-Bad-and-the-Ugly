@@ -11,7 +11,7 @@ the 2016 election of Donald Trump. Just like the characters in Clint
 Eastwood’s famous spaghetti western, the election elicited rhetoric
 indicating good (a heightened national belonging for many (albeit mostly
 white) citizens), bad (political polarization), and ugly (social
-discrimination) changes in Trump’s America.
+discrimination) aspects to Trump’s America.
 
  
 
