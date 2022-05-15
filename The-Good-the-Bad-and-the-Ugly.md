@@ -8,10 +8,10 @@ Jack Carter
 This project uses the number of articles containing certain terms to
 show how the conversation in The New York Times (NYT) changed following
 the 2016 election of Donald Trump. Just like the characters in Clint
-Eastwood’s famous spaghetti western, the election elicited rhetoric
-indicating good (a heightened national belonging for many (albeit mostly
-white) citizens), bad (political polarization), and ugly (social
-discrimination) characteristics of Trump’s America.
+Eastwood’s famous spaghetti western, Trump's rise highlighted good 
+(a heightened national belonging for many (albeit mostly white) 
+Americans), bad (political polarization), and ugly (social
+discrimination) characteristics of US society.
 
  
 
